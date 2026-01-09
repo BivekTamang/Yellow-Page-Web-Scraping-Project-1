@@ -25,7 +25,7 @@ I built this to solve the problem of manual lead research for real estate and ho
 
 2. Installation
 -Clone the repository
--git clone https://github.com/BivekTamang/Yellow-Pages-Web-Scraping-Project-1.git
+-git clone https://https://github.com/BivekTamang/Yellow-Page-Web-Scraping-Project-1/
 
 # Install dependencies
 pip install -r requirements.txt
