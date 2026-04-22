@@ -47,7 +47,7 @@ async def scrape_hotels():
 
             page.set_default_timeout(60000)
 
-            print(f"🚀 Resuming from page {start_page}...")
+            print(f"Resuming from page {start_page}...")
             base_url = "https://www.yellowpages.com/search?search_terms=Hotels&geo_location=Los+Angeles%2C+CA"
             target_url = base_url if start_page == 1 else f"{base_url}&page={start_page}"
 
@@ -56,7 +56,7 @@ async def scrape_hotels():
 
             for current_page in range(start_page, start_page + 3):
                 try:
-                    print(f"📄 Scraping Page {current_page}...")
+                    print(f"Scraping Page {current_page}...")
                     await page.wait_for_selector(".result", timeout=20000)
 
                     # Human-like scroll
@@ -133,21 +133,21 @@ async def scrape_hotels():
                         await next_btn.click()
                         await page.wait_for_load_state("networkidle")
                         sleep_time = random.uniform(5, 8)
-                        print(f"😴 Page loaded. Resting for {sleep_time:.2f}s...")
+                        print(f"Page loaded. Resting for {sleep_time:.2f}s...")
                         await asyncio.sleep(sleep_time)
                     else:
                         break
 
                 except PlaywrightTimeout:
-                    print(f"⚠️ Page {current_page} timed out.")
+                    print(f"Page {current_page} timed out.")
                     continue
 
         except Exception as e:
-            print(f"❌ Fatal error: {e}")
+            print(f"Fatal error: {e}")
         finally:
             if 'browser' in locals():
                 await browser.close()
-            print(f"📊 Final Session Summary: Found {len(all_hotels)} hotels.")
+            print(f"Final Session Summary: Found {len(all_hotels)} hotels.")
 
 
 if __name__ == "__main__":
